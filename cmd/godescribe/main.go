@@ -1,19 +1,7 @@
-// What it does:
-//
-// This example uses the Tensorflow (https://www.tensorflow.org/) deep learning framework
-// to classify whatever is in front of the camera.
-//
-// Download the Tensorflow "Inception" model and descriptions file from:
-// https://storage.googleapis.com/download.tensorflow.org/models/inception5h.zip
-//
-// Extract the tensorflow_inception_graph.pb model file from the .zip file.
-//
-// Also extract the imagenet_comp_graph_label_strings.txt file with the descriptions.
-//
-// How to run:
-//
-// 		go run ./cmd/tf-classifier/main.go 0 ~/Downloads/tensorflow_inception_graph.pb ~/Downloads/imagenet_comp_graph_label_strings.txt opencv cpu
-//
+// What it does: Classifies images using a tensor flow model
+// Script returns slices of a description text file to reflect the subject of any image passed in as a url
+// Credit for this script belongs to hybridgroup 
+// Their original script can be found here https://github.com/hybridgroup/gocv/tree/master/cmd/tf-classifier
 package main
 
 import (
@@ -30,6 +18,7 @@ func main() {
 
 	// parse args
 	deviceID := os.Args[1]
+	//Replace this with your path to files
 	model := "/Users/lukeparker/go/src/godescribeAPI/cmd/godescribe/tensorflow_inception_graph.pb"
 	descr := "/Users/lukeparker/go/src/godescribeAPI/cmd/godescribe/imagenet_comp_graph_label_strings.txt"
 	descriptions, err := readDescriptions(descr)
